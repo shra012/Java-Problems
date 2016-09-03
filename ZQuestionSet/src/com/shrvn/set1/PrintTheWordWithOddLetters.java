@@ -16,13 +16,13 @@ public class PrintTheWordWithOddLetters {
 	 *  Input: 
 		PROGRAM
 		Output: 
-		 P     M
-		  R   A 
-		   O R
+		 P-----M
+          R---A
+		   O-R
 		    G
-		   O R
-		  R   A
-		 P     M 
+		   O-R
+		  R---A
+		 P-----M
 	 */
 	public static void main(String[] args) {
 	Scanner sc = new Scanner(System.in);
