@@ -1,2 +1,3 @@
 # Arrays
-Arrys Learnings
+
+Basic Arrys algorithm from GeeksForGeeks solved
