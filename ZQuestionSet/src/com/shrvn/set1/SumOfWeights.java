@@ -20,7 +20,7 @@ public class SumOfWeights {
 
 		Should display the numbers based on increasing order.
 	 */
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		int[] a = {10, 36, 54,89,12};
 		int l = a.length;
 		int[] weight = new int[a.length];
@@ -54,7 +54,7 @@ public class SumOfWeights {
 			}
 		}
 
-	}*/
+	}
 	// to find sqrt
 	public static double findSquareRoot(double number){
 
@@ -94,10 +94,11 @@ public class SumOfWeights {
 			return squareRoot;
 		}
 
+	
 	}
 	
 	
-	public static void main(String args[])
+	/*public static void main(String args[])
     {
         int[] numArray = {10,36,54,89,12};
         int numArraylen = numArray.length;
@@ -129,7 +130,7 @@ public class SumOfWeights {
         
         for(int i=0; i<numArraylen; i++)
             System.out.print("<"+numArray[i]+","+wegArray[i]+">,");
-    }
+    }*/
 
 
 }
