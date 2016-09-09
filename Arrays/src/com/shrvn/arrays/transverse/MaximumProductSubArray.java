@@ -29,8 +29,8 @@ public class MaximumProductSubArray {
 		int ltrproduct;
 		rtlproduct = rtlproduct(a,0);
 		ltrproduct =ltrproduct(a,length-1);
-		rtlproduct= Integer.max(rtlproduct, 0);
-		ltrproduct =Integer.max(ltrproduct, 0);
+		/*rtlproduct= Integer.max(rtlproduct, 0);
+		ltrproduct =Integer.max(ltrproduct, 0);*/
 		if(Math.abs(rtlproduct)>Math.abs(ltrproduct))
 			System.out.println(Math.abs(rtlproduct));
 		else
