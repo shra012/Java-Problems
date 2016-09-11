@@ -13,7 +13,17 @@ import com.shrvn.ds.linkedlist.LinkedList.Node;
 public class Merge {
 
 	/**
-	 * @param args
+	 * Input : Head of following linked list  
+		      a--> 1->2->NULL
+		      b--> 3->4->NULL
+		Output : Linked list should be changed to,
+		      c--> 4->3->2->1->NULL
+
+		Input : Head of following linked list  
+		      a--> 1->3->5->NULL
+		      b--> 2->4->NULL
+		Output : Linked list should be changed to,
+		      c--> 1->2->3->4->5->NULL
 	 */
 	public static void main(String[] args) {
 		LinkedList a = new LinkedList();
