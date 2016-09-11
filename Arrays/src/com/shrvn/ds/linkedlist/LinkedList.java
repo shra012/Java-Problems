@@ -1,10 +1,7 @@
-/**
- * 
- */
 package com.shrvn.ds.linkedlist;
 
 /**
- * @author 965922
+ * @author shravan
  *
  */
 public class LinkedList {
