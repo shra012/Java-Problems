@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.shrvn.linkedlist;
 
 import com.shrvn.ds.linkedlist.LinkedList;
