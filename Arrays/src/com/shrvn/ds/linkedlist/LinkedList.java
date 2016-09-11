@@ -97,6 +97,42 @@ public class LinkedList {
 		return 1+length(node);
 	}
 
+	public void swap(int firstData, int secondData){
+		if(firstData==secondData) return;
+		if(head==null) return;
+		Node first=head,second=head;
+		Node prev_first=null,prev_seond=null;
+
+		while(first!=null && first.data!=firstData){
+			prev_first=first;
+			first=first.next;
+		}
+
+		while(second!=null && second.data!=secondData){
+			prev_seond=second;
+			second=second.next;
+		}
+
+		if(first==null || second ==null){
+			return;
+		}
+		if(null!=prev_first){
+			prev_first.next=second;
+		}else{
+			head=first;
+		}
+		if(null!=prev_seond){
+			prev_seond.next=first;
+		}else{
+			head=second;
+		}
+		Node temp;
+		temp=first.next;
+		first.next=second.next;
+		second.next=temp;
+		return;
+	}
+
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
 		list.push(0);
