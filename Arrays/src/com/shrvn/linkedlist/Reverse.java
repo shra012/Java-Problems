@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.shrvn.linkedlist;
 
 import com.shrvn.ds.linkedlist.LinkedList;
@@ -30,8 +27,8 @@ public class Reverse {
 		list.push(2);
 		list.push(1);
 		list.printList();
-		//list.reverseList();
-		//list.printList();
+		list.reverseList();
+		list.printList();
 		list.recursiveReverse(list.getHead());
 		list.printList();
 	}	
