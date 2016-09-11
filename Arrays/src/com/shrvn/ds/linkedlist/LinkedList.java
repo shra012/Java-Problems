@@ -11,11 +11,15 @@ public class LinkedList {
 
 	Node head;
 	public class Node{
-		Node next;
-		int data;
+		public Node next;
+		public int data;
 		public Node(int data) {
 			this.data = data;
 			this.next =null; 
+		}
+		public Node(Node node){
+			this.data=node.data;
+			this.next=node.next;
 		}
 	}
 	public void push(int new_data){
@@ -97,6 +101,44 @@ public class LinkedList {
 		return 1+length(node);
 	}
 
+	public Node getNewNode(Node node){
+		return new Node(node);
+	}
+	public void recursiveReverse(Node head){
+		Node first;
+		Node rest;
+		Node top=last();     
+		/* empty list */
+		if (head == null)
+			return;   
+
+		/* suppose first = {1, 2, 3}, rest = {2, 3} */
+		first = head; 
+		rest  = first.next;
+
+		/* List has only one node */
+		if (rest == null)
+			return;   
+
+		/* reverse the rest list and put the first element at the end */
+		recursiveReverse(rest);
+		first.next.next  = first;
+		/* tricky step -- see the diagram */
+		first.next  = null;          
+
+		/* fix the head pointer */
+		this.head = top;
+	}
+
+	public Node last(){
+		Node temp =head;
+		Node prev =null;
+		while(temp!=null){
+			prev=temp;
+			temp=temp.next;
+		}
+		return prev;
+	}
 	public void swap(int firstData, int secondData){
 		if(firstData==secondData) return;
 		if(head==null) return;
@@ -131,6 +173,23 @@ public class LinkedList {
 		first.next=second.next;
 		second.next=temp;
 		return;
+	}
+	public void reverseList(){
+		if(head==null) return;
+		Node prev=null,
+				current=head,
+				next=null;
+
+		while(current!=null){
+			next=current.next;
+			current.next=prev;
+			prev=current;
+			current=next;
+		}
+		head=prev;
+	}
+	public Node getHead(){
+		return this.head;
 	}
 
 	public static void main(String[] args) {
