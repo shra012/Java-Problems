@@ -25,35 +25,44 @@ public class MergeSort {
 		list.append(5);
 		list.append(8);
 		list.append(7);
-		sort(list.getHead());
+		printList(sort(list.getHead()));
 	}
 
-	public static void sort(Node head){
-		Node front=head;
-		Node back=head;
+	public static Node sort(Node head){
+		if(head.next==null || head==null){
+			return head;
+		}
+		Node front=new Node();
+		Node back=new Node();
 		frontBackSplit(head,front,back);
-		sort(front);
-		sort(back);
-		head= SortedMerg(front,back);
-		printList(head);
+		front=front.next;
+		back = back.next;
+		front=sort(front);
+		back = sort(back);
+		head= SortedMerge(front,back);
+		return head;
 	}
 
-	static void frontBackSplit(Node head, Node front, Node back) {
-		if (head==null) return;  // Handle empty list
+	static void frontBackSplit(Node head,Node front,Node back) {
+
 		Node front_last_node=null;
 		Node slow = head;
 		Node fast = head;
-		while (fast!=null) {
+		while ( fast!=null && fast.next!=null) {
 			front_last_node = slow;
 			slow = slow.next;
 			fast = (fast.next!=null) ? fast.next.next : null;
 		}
+		if(fast!=null){
+			front_last_node = slow;
+			slow=front_last_node.next;
+		}
 		front_last_node.next = null;  // ends the front sublist
-		front = head;
-		back = slow;
+		front.next = head;
+		back.next = slow;
 	}
 
-	public static Node SortedMerg(Node a,Node b) {
+	public static Node SortedMerge(Node a,Node b) {
 		Node result = null;
 
 		/* Base cases */
@@ -65,14 +74,14 @@ public class MergeSort {
 		/* Pick either a or b, and recur */
 		if (a.data <= b.data) {
 			result = a;
-			result.next = SortedMerg(a.next, b);
+			result.next = SortedMerge(a.next, b);
 		}else{
 			result = b;
-			result.next = SortedMerg(a, b.next);
+			result.next = SortedMerge(a, b.next);
 		}
 		return result;
 	}
-	
+
 	public static void printList(Node head){
 		Node temp = head;
 		while(temp!=null){
