@@ -7,12 +7,14 @@ package com.shrvn.ds.linkedlist;
 public class LinkedList {
 
 	Node head;
-	public class Node{
+	public static class Node{
 		public Node next;
 		public int data;
 		public Node(int data) {
 			this.data = data;
 			this.next =null; 
+		}
+		public Node() {
 		}
 		public Node(Node node){
 			this.data=node.data;
@@ -187,6 +189,11 @@ public class LinkedList {
 	}
 	public Node getHead(){
 		return this.head;
+	}
+	
+	public Node getNewNode(){
+		Node node = new Node();
+		return node;
 	}
 
 	public static void main(String[] args) {
