@@ -44,7 +44,7 @@ public class MajorityElement {
 				count--;
 			}
 			if(count==0){
-				maj_index++;
+				maj_index=i;
 				count=1;
 			}
 		}
