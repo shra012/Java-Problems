@@ -4,7 +4,7 @@
 package com.shrvn.arrays.transverse;
 
 /**
- * @author 965922
+ * @author shravan
  *
  */
 public class MajorityElement {
