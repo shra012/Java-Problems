@@ -3,8 +3,6 @@
  */
 package com.shrvn.arrays.reverse;
 
-import java.util.Arrays;
-
 /**
  * @author shravan
  *
