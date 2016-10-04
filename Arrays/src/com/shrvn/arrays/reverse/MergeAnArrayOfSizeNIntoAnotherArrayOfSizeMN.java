@@ -39,7 +39,7 @@ public class MergeAnArrayOfSizeNIntoAnotherArrayOfSizeMN {
 		}
 		System.out.println(Arrays.toString(a));
 	}
-	public static void merge(int a[],int b[]){
+	public void merge(int a[],int b[]){
 		int al=a.length;
 		int bl=b.length;
 		int i = bl;
