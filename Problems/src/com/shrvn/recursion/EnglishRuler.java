@@ -3,22 +3,21 @@
  */
 package com.shrvn.recursion;
 
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+
+import com.shrvn.logger.LoggerUtils;
 
 /**
  * @author shravan
  *
  */
 public class EnglishRuler {
-	static final Logger logger = Logger.getLogger(EnglishRuler.class);
+	@SuppressWarnings("rawtypes")
+	static final Logger logger = new LoggerUtils(EnglishRuler.class).getLogger();
 
-	public static void configure() {
-		BasicConfigurator.configure();
-	}
+	
 
 	public static void main(String[] args) {
-		configure();
 		logger.debug("Inside main method");
 		drawRuler(2,4);
 		logger.debug("Leaving main method");
