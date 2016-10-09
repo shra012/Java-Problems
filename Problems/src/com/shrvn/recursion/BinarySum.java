@@ -13,7 +13,9 @@ public class BinarySum {
 	 * Driver method to call the binarySum method
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		int data[] = {2,3,5,6,7,8,1,2,3,0,4};
+		int sum = binarySum(data,0,data.length-1);
+		System.out.println(sum);
 
 	}
 
