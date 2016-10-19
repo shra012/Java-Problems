@@ -97,5 +97,15 @@ public class ArrayStackMain<E> {
 		default : // Optional
 			System.out.println("Sorry Wrong Option ...");
 		}
+		
+	}
+	public static<E> void reverse(E[] a) {
+		Stack<E> stack = new ArrayStack<E>();
+		for (int i = 0; i < a.length; i++) {
+			stack.push(a[i]);
+		}
+		for (int i = 0; i < a.length; i++) {
+			a[i]=stack.pop();
+		}
 	}
 }
