@@ -21,15 +21,20 @@ public class BubbleSort {
 		System.out.println(Arrays.toString(array));
 	}
 	public static int[] bubbleSort(int[] array,int length){
+		boolean swapped;
 		for(int i=0;i<length-1;i++){
-		for(int j=0;j<length-i-1;j++){
-			int temp;
-			if(array[j]>array[j+1]){
-				temp=array[j];
-				array[j]=array[j+1];
-				array[j+1]=temp;
+			swapped = false;
+			for(int j=0;j<length-i-1;j++){
+				int temp;
+				if(array[j]>array[j+1]){
+					temp=array[j];
+					array[j]=array[j+1];
+					array[j+1]=temp;
+					swapped = true;
+				}
 			}
-		}
+			if (swapped == false)
+		        break;
 		}
 		return array;
 	}
