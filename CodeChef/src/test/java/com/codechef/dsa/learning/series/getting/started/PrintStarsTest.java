@@ -1,4 +1,4 @@
-package com.codechef.dsa.learning.series;
+package com.codechef.dsa.learning.series.getting.started;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
