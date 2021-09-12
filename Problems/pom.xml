@@ -5,6 +5,10 @@
 	<artifactId>Problems</artifactId>
 	<version>Promblems 00.01</version>
 	<name>Problems</name>
+	<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+	</properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>

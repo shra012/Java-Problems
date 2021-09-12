@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.shrvn.Arrays;
+package com.shrvn.arrays;
 
 /**
  * @author shravan
