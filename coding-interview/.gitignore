@@ -1,6 +1,5 @@
 .java-version
 .project
-pom.xml
 .settings/
 .vscode/
 target/
