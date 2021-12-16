@@ -3,35 +3,34 @@
  */
 package com.shrvn.recursion;
 
-import org.apache.log4j.Logger;
-
-import com.shrvn.logger.LoggerUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author shravan
  *
  */
 public class Power {
-	@SuppressWarnings("rawtypes")
-	static final Logger logger = new LoggerUtils(Power.class).getLogger();
+	static final Logger logger = LoggerFactory.getLogger(Power.class);
 
 	/**
-	 * @param Driver method to test the pow function 
-	 * and logger is used to test speed of recursion
-	 * btw power and pow methods
+	 * @param Driver method to test the pow function
+	 *               and logger is used to test speed of recursion
+	 *               btw power and pow methods
 	 */
 	public static void main(String[] args) {
 		logger.debug("Inside main method");
-		System.out.println(power(2,13));
+		System.out.println(power(2, 13));
 		logger.debug("pow method is finished");
-		System.out.println(pow(2,13));
+		System.out.println(pow(2, 13));
 		logger.debug("Leaving main method");
 
 	}
 
 	/**
 	 * Computes the value of x raised to the nth power,
-	 *  for nonnegative integer n.
+	 * for nonnegative integer n.
+	 * 
 	 * @return
 	 */
 	public static double power(double x, int n) {
@@ -45,6 +44,7 @@ public class Power {
 	 * 
 	 * Computes the value of x raised to the nth power,
 	 * for nonnegative integer n.
+	 * 
 	 * @return
 	 */
 	public static double pow(double x, int n) {

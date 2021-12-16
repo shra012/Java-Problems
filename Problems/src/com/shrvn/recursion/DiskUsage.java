@@ -5,26 +5,25 @@ package com.shrvn.recursion;
 
 import java.io.File;
 
-import org.apache.log4j.Logger;
-
-import com.shrvn.logger.LoggerUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author shravan
  *
  */
 public class DiskUsage {
-	@SuppressWarnings("rawtypes")
-	static final Logger logger = new LoggerUtils(DiskUsage.class).getLogger();
+	static final Logger logger = LoggerFactory.getLogger(DiskUsage.class);
 
 	/***
-	 * Main method to call diskUsage method which calculates 
+	 * Main method to call diskUsage method which calculates
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		logger.debug("Inside main method");
-		File root = new File("/Users/Hiruzen/introcs/Abstract"); 
-		System.out.println(diskUsage(root)/1000 +"KB");
+		File root = new File("/Users/Hiruzen/introcs/Abstract");
+		System.out.println(diskUsage(root) / 1000 + "KB");
 		logger.debug("Leaving main method");
 	}
 

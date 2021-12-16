@@ -3,23 +3,19 @@
  */
 package com.shrvn.recursion;
 
-import org.apache.log4j.Logger;
-
-import com.shrvn.logger.LoggerUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author shravan
  *
  */
 public class EnglishRuler {
-	@SuppressWarnings("rawtypes")
-	static final Logger logger = new LoggerUtils(EnglishRuler.class).getLogger();
-
-	
+	static final Logger logger = LoggerFactory.getLogger(EnglishRuler.class);
 
 	public static void main(String[] args) {
 		logger.debug("Inside main method");
-		drawRuler(2,4);
+		drawRuler(2, 4);
 		logger.debug("Leaving main method");
 	}
 
@@ -40,7 +36,7 @@ public class EnglishRuler {
 	}
 
 	public static void drawLine(int tickLength, int lable) {
-		for (int i = 0; i < tickLength; i++){
+		for (int i = 0; i < tickLength; i++) {
 			System.out.print("-");
 		}
 		if (lable >= 0) {
