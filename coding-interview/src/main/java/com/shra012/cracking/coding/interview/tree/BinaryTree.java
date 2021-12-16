@@ -1,10 +1,12 @@
 package com.shra012.cracking.coding.interview.tree;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Set;
-import java.util.Stack;
 
 public class BinaryTree<T extends Comparable<T>> {
     private Node<T> root;
@@ -20,8 +22,8 @@ public class BinaryTree<T extends Comparable<T>> {
 
     }
 
-    public LinkedList<T> breadthFirst() {
-        LinkedList<T> list = new LinkedList<>();
+    public List<T> breadthFirst() {
+        List<T> list = new LinkedList<>();
         if (root == null) {
             return list;
         }
@@ -40,13 +42,13 @@ public class BinaryTree<T extends Comparable<T>> {
         return list;
     }
 
-    public LinkedList<T> inOrderTraversal() {
-        LinkedList<T> list = new LinkedList<>();
+    public List<T> inOrderTraversal() {
+        List<T> list = new LinkedList<>();
         if (root == null) {
             return list;
         }
         Set<Node<T>> visited = new HashSet<>();
-        Stack<Node<T>> stack = new Stack<>();
+        Deque<Node<T>> stack = new ArrayDeque<>();
         stack.push(root);
         while (!stack.isEmpty()) {
             Node<T> current = stack.pop();
@@ -68,13 +70,13 @@ public class BinaryTree<T extends Comparable<T>> {
         return list;
     }
 
-    public LinkedList<T> inOrderTraversalWithRecursion() {
-        LinkedList<T> list = new LinkedList<>();
+    public List<T> inOrderTraversalWithRecursion() {
+        List<T> list = new LinkedList<>();
         inOrderTraversalWithRecursion(root, list);
         return list;
     }
 
-    private void inOrderTraversalWithRecursion(Node<T> root, LinkedList<T> list) {
+    private void inOrderTraversalWithRecursion(Node<T> root, List<T> list) {
         if (root == null) {
             return;
         }
@@ -83,13 +85,13 @@ public class BinaryTree<T extends Comparable<T>> {
         inOrderTraversalWithRecursion(root.getRight(), list);
     }
 
-    public LinkedList<T> preOrderTraversal() {
-        LinkedList<T> list = new LinkedList<>();
+    public List<T> preOrderTraversal() {
+        List<T> list = new LinkedList<>();
         if (root == null) {
             return list;
         }
         Set<Node<T>> visited = new HashSet<>();
-        Stack<Node<T>> stack = new Stack<>();
+        Deque<Node<T>> stack = new ArrayDeque<>();
         stack.push(root);
         while (!stack.isEmpty()) {
             Node<T> current = stack.pop();
@@ -111,13 +113,13 @@ public class BinaryTree<T extends Comparable<T>> {
         return list;
     }
 
-    public LinkedList<T> preOrderTraversalWithRecursion() {
-        LinkedList<T> list = new LinkedList<>();
+    public List<T> preOrderTraversalWithRecursion() {
+        List<T> list = new LinkedList<>();
         preOrderTraversalWithRecursion(root, list);
         return list;
     }
 
-    private void preOrderTraversalWithRecursion(Node<T> root, LinkedList<T> list) {
+    private void preOrderTraversalWithRecursion(Node<T> root, List<T> list) {
         if (root == null) {
             return;
         }
@@ -126,13 +128,13 @@ public class BinaryTree<T extends Comparable<T>> {
         preOrderTraversalWithRecursion(root.getRight(), list);
     }
 
-    public LinkedList<T> postOrderTraversal() {
-        LinkedList<T> list = new LinkedList<>();
+    public List<T> postOrderTraversal() {
+        List<T> list = new LinkedList<>();
         if (root == null) {
             return list;
         }
         Set<Node<T>> visited = new HashSet<>();
-        Stack<Node<T>> stack = new Stack<>();
+        Deque<Node<T>> stack = new ArrayDeque<>();
         stack.push(root);
         while (!stack.isEmpty()) {
             Node<T> current = stack.pop();
@@ -154,13 +156,13 @@ public class BinaryTree<T extends Comparable<T>> {
         return list;
     }
 
-    public LinkedList<T> postOrderTraversalWithRecursion() {
-        LinkedList<T> list = new LinkedList<>();
+    public List<T> postOrderTraversalWithRecursion() {
+        List<T> list = new LinkedList<>();
         postOrderTraversalWithRecursion(root, list);
         return list;
     }
 
-    private void postOrderTraversalWithRecursion(Node<T> root, LinkedList<T> list) {
+    private void postOrderTraversalWithRecursion(Node<T> root, List<T> list) {
         if (root == null) {
             return;
         }
@@ -210,7 +212,7 @@ public class BinaryTree<T extends Comparable<T>> {
         }
         actualSum += ((Number) root.getData()).intValue();
         if (root.getLeft() == null && root.getRight() == null && expectedSum != 0) {
-            return actualSum == expectedSum;
+            return actualSum.equals(expectedSum);
         }
         return hasPathSumRecursion(root.getLeft(), expectedSum, actualSum)
                 || hasPathSumRecursion(root.getRight(), expectedSum, actualSum);

@@ -1,6 +1,5 @@
 package com.shra012.cracking.coding.interview.tree;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
@@ -10,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class BinaryTreeTest {
+class BinaryTreeTests {
 
     private BinaryTree<Character> characterTree;
 
@@ -31,30 +30,30 @@ public class BinaryTreeTest {
 
     @Test
     void shouldReturnItemsInBreadthFirst() {
-        LinkedList<Character> list = characterTree.breadthFirst();
+        List<Character> list = characterTree.breadthFirst();
         Assertions.assertEquals(List.of('A', 'B', 'C', 'D', 'E', 'F', 'H', 'G', 'I'), list);
     }
 
     @Test
     void shouldReturnItemsWithInOrderTraversalStrategy() {
-        LinkedList<Character> direct = characterTree.inOrderTraversal();
-        LinkedList<Character> recursion = characterTree.inOrderTraversalWithRecursion();
+        List<Character> direct = characterTree.inOrderTraversal();
+        List<Character> recursion = characterTree.inOrderTraversalWithRecursion();
         Assertions.assertEquals(List.of('B', 'A', 'F', 'D', 'H', 'C', 'E', 'G', 'I'), direct);
         Assertions.assertEquals(List.of('B', 'A', 'F', 'D', 'H', 'C', 'E', 'G', 'I'), recursion);
     }
 
     @Test
     void shouldReturnItemsWithPerOrderTraversalStrategy() {
-        LinkedList<Character> direct = characterTree.preOrderTraversal();
-        LinkedList<Character> recursion = characterTree.preOrderTraversalWithRecursion();
+        List<Character> direct = characterTree.preOrderTraversal();
+        List<Character> recursion = characterTree.preOrderTraversalWithRecursion();
         Assertions.assertEquals(List.of('A', 'B', 'C', 'D', 'F', 'H', 'E', 'G', 'I'), direct);
         Assertions.assertEquals(List.of('A', 'B', 'C', 'D', 'F', 'H', 'E', 'G', 'I'), recursion);
     }
 
     @Test
     void shouldReturnItemsWithPostOrderTraversalStrategy() {
-        LinkedList<Character> direct = characterTree.postOrderTraversal();
-        LinkedList<Character> recursion = characterTree.postOrderTraversalWithRecursion();
+        List<Character> direct = characterTree.postOrderTraversal();
+        List<Character> recursion = characterTree.postOrderTraversalWithRecursion();
         Assertions.assertEquals(List.of('B', 'F', 'H', 'D', 'I', 'G', 'E', 'C', 'A'), direct);
         Assertions.assertEquals(List.of('B', 'F', 'H', 'D', 'I', 'G', 'E', 'C', 'A'), recursion);
     }
@@ -74,7 +73,7 @@ public class BinaryTreeTest {
     @Test
     void shouldMirrorTheCurrentTree() {
         characterTree.mirror();
-        LinkedList<Character> mirroredList = characterTree.breadthFirst();
+        List<Character> mirroredList = characterTree.breadthFirst();
         Assertions.assertEquals(List.of('A', 'C', 'B', 'E', 'D', 'G', 'H', 'F', 'I'), mirroredList);
     }
 
@@ -112,7 +111,7 @@ public class BinaryTreeTest {
     }
 
     @Test
-    public void shouldTestPathSum() {
+    void shouldTestPathSum() {
         Node<Integer> root = new Node<>(1);
         root.setLeft(new Node<>(2));
         root.setRight(new Node<>(3));

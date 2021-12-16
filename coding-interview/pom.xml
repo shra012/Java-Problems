@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
@@ -19,9 +18,11 @@
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     <jacoco.version>0.8.7</jacoco.version>
   </properties>
+
   <description>This project aims to solve problems from Cracking 
     The Coding Interview by Gayle Laakmann Mcdowell.
   </description>
+
   <dependencies>
     <dependency>
       <groupId>org.projectlombok</groupId>
@@ -52,6 +53,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -60,14 +62,14 @@
         <version>${jacoco.version}</version>
         <executions>
           <execution>
-            <id>prepare-agent</id>
+            <id>jacoco-initialize</id>
             <goals>
               <goal>prepare-agent</goal>
             </goals>
           </execution>
           <execution>
-            <id>report</id>
-            <phase>test</phase>
+            <id>jacoco-site</id>
+            <phase>package</phase>
             <goals>
               <goal>report</goal>
             </goals>
@@ -75,5 +77,14 @@
         </executions>
       </plugin>
     </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M5</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 </project>
