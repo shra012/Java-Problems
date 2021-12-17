@@ -68,7 +68,7 @@ class BinaryTreeTests {
 
     @Test
     void shouldReturnEmptyListWhenNodeIsNullOnPreOrderTraversal() {
-        List<Character> list = nullTree.postOrderTraversal();
+        List<Character> list = nullTree.preOrderTraversal();
         Assertions.assertEquals(Collections.EMPTY_LIST, list);
     }
 
