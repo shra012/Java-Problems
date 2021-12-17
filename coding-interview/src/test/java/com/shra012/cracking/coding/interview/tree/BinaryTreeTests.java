@@ -159,6 +159,7 @@ class BinaryTreeTests {
     @Test
     void shouldThrowIllegalStateExceptionWhenHasPathSumIsCalledWithANonNumericTree() {
         Assertions.assertThrows(IllegalStateException.class, () -> characterTree.hasPathSum(1));
+        Assertions.assertThrows(IllegalStateException.class, () -> characterTree.hasPathSumSubtraction(1));
     }
 
     private Node<Character> buildFullTreeNodes() {
