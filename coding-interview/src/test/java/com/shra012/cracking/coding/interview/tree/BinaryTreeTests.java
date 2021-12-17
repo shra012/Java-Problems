@@ -73,6 +73,7 @@ class BinaryTreeTests {
     @Test
     void shouldMirrorTheCurrentTree() {
         characterTree.mirror();
+        log.info("- {} -", characterTree);
         List<Character> mirroredList = characterTree.breadthFirst();
         Assertions.assertEquals(List.of('A', 'C', 'B', 'E', 'D', 'G', 'H', 'F', 'I'), mirroredList);
     }
