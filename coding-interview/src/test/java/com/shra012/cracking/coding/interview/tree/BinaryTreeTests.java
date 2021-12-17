@@ -156,6 +156,11 @@ class BinaryTreeTests {
         Assertions.assertFalse(integerTree.hasPathSumSubtraction(5));
     }
 
+    @Test
+    void shouldThrowIllegalStateExceptionWhenHasPathSumIsCalledWithANonNumericTree() {
+        Assertions.assertThrows(IllegalStateException.class, () -> characterTree.hasPathSum(1));
+    }
+
     private Node<Character> buildFullTreeNodes() {
         Node<Character> root = new Node<>('A');
         root.setLeft(new Node<>('B'));
