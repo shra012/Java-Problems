@@ -1,5 +1,6 @@
 package com.shra012.cracking.coding.interview.tree;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
@@ -12,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 class BinaryTreeTests {
 
     private BinaryTree<Character> characterTree;
+
+    private BinaryTree<Character> nullTree = new BinaryTree<>(null);
 
     @BeforeEach
     void setUp() {
@@ -26,12 +29,19 @@ class BinaryTreeTests {
         root.getRight().getRight().getRight().setRight(new Node<>('I'));
         characterTree = new BinaryTree<>(root);
         log.info("{}", characterTree);
+
     }
 
     @Test
     void shouldReturnItemsInBreadthFirst() {
         List<Character> list = characterTree.breadthFirst();
         Assertions.assertEquals(List.of('A', 'B', 'C', 'D', 'E', 'F', 'H', 'G', 'I'), list);
+    }
+
+    @Test
+    void shouldReturnEmptyListWhenNodeIsNullOnBreadthFirst() {
+        List<Character> list = nullTree.breadthFirst();
+        Assertions.assertEquals(Collections.EMPTY_LIST, list);
     }
 
     @Test
@@ -43,6 +53,12 @@ class BinaryTreeTests {
     }
 
     @Test
+    void shouldReturnEmptyListWhenNodeIsNullOnInOrderTraversal() {
+        List<Character> list = nullTree.inOrderTraversal();
+        Assertions.assertEquals(Collections.EMPTY_LIST, list);
+    }
+
+    @Test
     void shouldReturnItemsWithPerOrderTraversalStrategy() {
         List<Character> direct = characterTree.preOrderTraversal();
         List<Character> recursion = characterTree.preOrderTraversalWithRecursion();
@@ -51,11 +67,23 @@ class BinaryTreeTests {
     }
 
     @Test
+    void shouldReturnEmptyListWhenNodeIsNullOnPreOrderTraversal() {
+        List<Character> list = nullTree.postOrderTraversal();
+        Assertions.assertEquals(Collections.EMPTY_LIST, list);
+    }
+
+    @Test
     void shouldReturnItemsWithPostOrderTraversalStrategy() {
         List<Character> direct = characterTree.postOrderTraversal();
         List<Character> recursion = characterTree.postOrderTraversalWithRecursion();
         Assertions.assertEquals(List.of('B', 'F', 'H', 'D', 'I', 'G', 'E', 'C', 'A'), direct);
         Assertions.assertEquals(List.of('B', 'F', 'H', 'D', 'I', 'G', 'E', 'C', 'A'), recursion);
+    }
+
+    @Test
+    void shouldReturnEmptyListWhenNodeIsNullOnPostOrderTraversal() {
+        List<Character> list = nullTree.postOrderTraversal();
+        Assertions.assertEquals(Collections.EMPTY_LIST, list);
     }
 
     @Test
