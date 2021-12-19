@@ -1,11 +1,13 @@
 package com.shra012.cracking.coding.interview.tree;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@EqualsAndHashCode
 @RequiredArgsConstructor
 public class Node<T extends Comparable<T>> {
     private Node<T> left;

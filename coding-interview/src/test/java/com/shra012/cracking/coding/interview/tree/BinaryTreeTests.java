@@ -107,6 +107,29 @@ class BinaryTreeTests {
     }
 
     @Test
+    void shouldTestPathSum() {
+        Node<Integer> root = new Node<>(1);
+        root.setLeft(new Node<>(2));
+        root.setRight(new Node<>(3));
+        root.getRight().setLeft(new Node<>(7));
+        root.getRight().setRight(new Node<>(6));
+        root.getRight().getLeft().setLeft(new Node<>(8));
+        root.getRight().getRight().setLeft(new Node<>(5));
+        root.getRight().getRight().setRight(new Node<>(4));
+        BinaryTree<Integer> integerTree = new BinaryTree<>(root);
+        Assertions.assertTrue(integerTree.hasPathSum(15));
+        Assertions.assertFalse(integerTree.hasPathSum(12));
+        Assertions.assertTrue(integerTree.hasPathSumSubtraction(3));
+        Assertions.assertFalse(integerTree.hasPathSumSubtraction(5));
+    }
+
+    @Test
+    void shouldThrowIllegalStateExceptionWhenHasPathSumIsCalledWithANonNumericTree() {
+        Assertions.assertThrows(IllegalStateException.class, () -> characterTree.hasPathSum(1));
+        Assertions.assertThrows(IllegalStateException.class, () -> characterTree.hasPathSumSubtraction(1));
+    }
+
+    @Test
     void shouldReturnTrueWhenTheTreeIsFull() {
         Node<Character> root = buildFullTreeNodes();
         BinaryTree<Character> fullTree = new BinaryTree<>(root);
@@ -140,26 +163,35 @@ class BinaryTreeTests {
     }
 
     @Test
-    void shouldTestPathSum() {
-        Node<Integer> root = new Node<>(1);
-        root.setLeft(new Node<>(2));
-        root.setRight(new Node<>(3));
-        root.getRight().setLeft(new Node<>(7));
-        root.getRight().setRight(new Node<>(6));
-        root.getRight().getLeft().setLeft(new Node<>(8));
-        root.getRight().getRight().setLeft(new Node<>(5));
-        root.getRight().getRight().setRight(new Node<>(4));
-        BinaryTree<Integer> integerTree = new BinaryTree<>(root);
-        Assertions.assertTrue(integerTree.hasPathSum(15));
-        Assertions.assertFalse(integerTree.hasPathSum(12));
-        Assertions.assertTrue(integerTree.hasPathSumSubtraction(3));
-        Assertions.assertFalse(integerTree.hasPathSumSubtraction(5));
+    void shouldReturnTrueWhenTheTreeIsComplete() {
+        Node<Character> root = new Node<>('A');
+        root.setLeft(new Node<>('B'));
+        root.getLeft().setLeft(new Node<>('D'));
+        root.getLeft().setRight(new Node<>('E'));
+        root.setRight(new Node<>('C'));
+        root.getRight().setLeft(new Node<>('F'));
+        root.getRight().setRight(new Node<>('G'));
+        BinaryTree<Character> completeTree = new BinaryTree<>(root);
+        Assertions.assertTrue(completeTree.isCompleteTree());
+        root.getLeft().getLeft().setLeft(new Node<>('H'));
+        root.getLeft().getLeft().setRight(new Node<>('I'));
+        root.getLeft().getRight().setLeft(new Node<>('J'));
+        Assertions.assertTrue(completeTree.isCompleteTree());
+        root.getRight().getLeft().setLeft(new Node<>('L'));
+        Assertions.assertFalse(completeTree.isCompleteTree());
     }
 
     @Test
-    void shouldThrowIllegalStateExceptionWhenHasPathSumIsCalledWithANonNumericTree() {
-        Assertions.assertThrows(IllegalStateException.class, () -> characterTree.hasPathSum(1));
-        Assertions.assertThrows(IllegalStateException.class, () -> characterTree.hasPathSumSubtraction(1));
+    void shouldReturnTrueWhenTheTreeIsBalanced() {
+        Node<Character> root = new Node<>('A');
+        root.setLeft(new Node<>('B'));
+        root.setRight(new Node<>('C'));
+        root.getRight().setLeft(new Node<>('D'));
+        root.getRight().setRight(new Node<>('E'));
+        BinaryTree<Character> balancedTree = new BinaryTree<>(root);
+        Assertions.assertTrue(balancedTree.isBalancedTree());
+        root.getRight().getLeft().setRight(new Node<>('F'));
+        Assertions.assertFalse(balancedTree.isBalancedTree());
     }
 
     private Node<Character> buildFullTreeNodes() {
