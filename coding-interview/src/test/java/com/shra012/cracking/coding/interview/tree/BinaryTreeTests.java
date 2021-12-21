@@ -1,20 +1,19 @@
 package com.shra012.cracking.coding.interview.tree;
 
-import java.util.Collections;
-import java.util.List;
-
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import lombok.extern.slf4j.Slf4j;
+import java.util.Collections;
+import java.util.List;
 
 @Slf4j
 class BinaryTreeTests {
 
     private BinaryTree<Character> characterTree;
 
-    private BinaryTree<Character> nullTree = new BinaryTree<>(null);
+    private static final BinaryTree<Character> EMPTY = new BinaryTree<>(null);
 
     @BeforeEach
     void setUp() {
@@ -29,7 +28,12 @@ class BinaryTreeTests {
         root.getRight().getRight().getRight().setRight(new Node<>('I'));
         characterTree = new BinaryTree<>(root);
         log.info("{}", characterTree);
+    }
 
+    @Test
+    void nodeToStringShouldReturnTheElement() {
+        Node<Character> root = new Node<>('A');
+        Assertions.assertEquals("A", root.toString());
     }
 
     @Test
@@ -40,7 +44,7 @@ class BinaryTreeTests {
 
     @Test
     void shouldReturnEmptyListWhenNodeIsNullOnBreadthFirst() {
-        List<Character> list = nullTree.breadthFirst();
+        List<Character> list = EMPTY.breadthFirst();
         Assertions.assertEquals(Collections.EMPTY_LIST, list);
     }
 
@@ -54,7 +58,7 @@ class BinaryTreeTests {
 
     @Test
     void shouldReturnEmptyListWhenNodeIsNullOnInOrderTraversal() {
-        List<Character> list = nullTree.inOrderTraversal();
+        List<Character> list = EMPTY.inOrderTraversal();
         Assertions.assertEquals(Collections.EMPTY_LIST, list);
     }
 
@@ -68,7 +72,7 @@ class BinaryTreeTests {
 
     @Test
     void shouldReturnEmptyListWhenNodeIsNullOnPreOrderTraversal() {
-        List<Character> list = nullTree.preOrderTraversal();
+        List<Character> list = EMPTY.preOrderTraversal();
         Assertions.assertEquals(Collections.EMPTY_LIST, list);
     }
 
@@ -82,7 +86,7 @@ class BinaryTreeTests {
 
     @Test
     void shouldReturnEmptyListWhenNodeIsNullOnPostOrderTraversal() {
-        List<Character> list = nullTree.postOrderTraversal();
+        List<Character> list = EMPTY.postOrderTraversal();
         Assertions.assertEquals(Collections.EMPTY_LIST, list);
     }
 

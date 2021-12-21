@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -16,6 +18,11 @@ public class Node<T extends Comparable<T>> {
     private final T data;
 
     public String toString() {
+        return Objects.nonNull(data) ? data.toString() : null;
+    }
+
+
+    public String printTree(){
         return this.toString(new StringBuilder(), true, new StringBuilder()).toString();
     }
 

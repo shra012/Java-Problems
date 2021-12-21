@@ -31,7 +31,7 @@ public final class BinaryTree<T extends Comparable<T>> {
      */
     @Override
     public String toString() {
-        return "Binary Tree\n" + root.toString();
+        return "Binary Tree\n" + root.printTree();
     }
 
     /**
