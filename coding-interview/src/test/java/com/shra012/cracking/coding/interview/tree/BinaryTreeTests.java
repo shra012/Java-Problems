@@ -34,6 +34,8 @@ class BinaryTreeTests {
     void nodeToStringShouldReturnTheElement() {
         Node<Character> root = new Node<>('A');
         Assertions.assertEquals("A", root.toString());
+        Node<Character> NULL_NODE = new Node<>(null);
+        Assertions.assertNull(NULL_NODE.toString());
     }
 
     @Test
