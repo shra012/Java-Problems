@@ -12,14 +12,14 @@ public abstract class Heap<T extends Comparable<T>> {
     private static final int MAX_SIZE = 10;
     private final T[] array;
     private int count = 0;
-    
-    public Heap(Class<T> clazz) {
+
+    protected Heap(Class<T> clazz) {
         this(clazz, MAX_SIZE);
     }
 
     @SuppressWarnings("unchecked")
-    public Heap(Class<T> clazz, int size) {
-        this.array = (T[]) Array.newInstance(clazz, MAX_SIZE);
+    protected Heap(Class<T> clazz, int size) {
+        this.array = (T[]) Array.newInstance(clazz, size);
     }
 
     /**
@@ -190,14 +190,14 @@ public abstract class Heap<T extends Comparable<T>> {
      * @return - a binary tree representation of the heap.
      */
     private StringBuilder toString(int index, StringBuilder prefix, boolean isTail, StringBuilder sb) {
-        if (index != -1 && index < count && index < array.length) {
+        if (index != -1 && index < count) {
             int rightIndex = getRightChildIndex(index);
             int leftIndex = getLeftChildIndex(index);
-            if (rightIndex != -1 && rightIndex < count && rightIndex < array.length) {
+            if (rightIndex != -1 && rightIndex < count) {
                 toString(rightIndex, new StringBuilder().append(prefix).append(isTail ? "│   " : "    "), false, sb);
             }
             sb.append(prefix).append(isTail ? "└── " : "┌── ").append(array[index]).append("\n");
-            if (leftIndex != -1 && leftIndex < count && leftIndex < array.length) {
+            if (leftIndex != -1 && leftIndex < count) {
                 toString(leftIndex, new StringBuilder().append(prefix).append(isTail ? "    " : "│   "), true, sb);
             }
         }
