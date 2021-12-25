@@ -22,7 +22,7 @@ public class MinHeap<T extends Comparable<T>> extends Heap<T> {
         if (rightIndex != -1 && leftIndex != -1) {
             T rightValue = get(rightIndex);
             T leftValue = get(leftIndex);
-            smallerIndex = (leftValue.compareTo(rightValue) <= 0) ? leftIndex : rightIndex;
+            smallerIndex = (leftValue.compareTo(rightValue) < 0) ? leftIndex : rightIndex;
         } else if (leftIndex != -1) {
             smallerIndex = leftIndex;
         } else {
@@ -33,7 +33,7 @@ public class MinHeap<T extends Comparable<T>> extends Heap<T> {
             return;
         }
         log.info("Smaller child: {}", get(smallerIndex));
-        if (get(smallerIndex).compareTo(get(index)) <= 0) {
+        if (get(smallerIndex).compareTo(get(index)) < 0) {
             swap(smallerIndex, index);
             log.info("Swap : current - {} with actual {}", get(index), get(smallerIndex));
             siftDown(smallerIndex);
@@ -51,7 +51,7 @@ public class MinHeap<T extends Comparable<T>> extends Heap<T> {
         log.info("Parent : {}", get(parentIndex));
         T childValue = get(index);
         T parentValue = get(parentIndex);
-        if (childValue.compareTo(parentValue) <= 0) {
+        if (childValue.compareTo(parentValue) < 0) {
             swap(parentIndex, index);
             log.info("Swap : current - {} with parent {}", get(index), get(parentIndex));
             siftUp(parentIndex);
