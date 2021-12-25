@@ -18,7 +18,7 @@ public class MaxHeap<T extends Comparable<T>> extends Heap<T> {
         log.info("Sifting down: {}", get(index));
         int rightIndex = getRightChildIndex(index);
         int leftIndex = getLeftChildIndex(index);
-        int largerIndex;
+        int largerIndex = -1;
         if (leftIndex != -1 && rightIndex != -1) {
             T leftValue = get(leftIndex);
             T rightValue = get(rightIndex);
