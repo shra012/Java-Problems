@@ -194,11 +194,13 @@ public abstract class Heap<T extends Comparable<T>> {
             int rightIndex = getRightChildIndex(index);
             int leftIndex = getLeftChildIndex(index);
             if (rightIndex != -1 && rightIndex < count) {
-                toString(rightIndex, new StringBuilder().append(prefix).append(isTail ? "│   " : "    "), false, sb);
+                String joining = isTail ? "│   " : "    ";
+                toString(rightIndex, new StringBuilder().append(prefix).append(joining), false, sb);
             }
             sb.append(prefix).append(isTail ? "└── " : "┌── ").append(array[index]).append("\n");
             if (leftIndex != -1 && leftIndex < count) {
-                toString(leftIndex, new StringBuilder().append(prefix).append(isTail ? "    " : "│   "), true, sb);
+                String joining = isTail ? "    " : "│   ";
+                toString(leftIndex, new StringBuilder().append(prefix).append(joining), true, sb);
             }
         }
         return sb;
