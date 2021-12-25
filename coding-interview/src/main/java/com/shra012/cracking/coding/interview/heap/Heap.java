@@ -189,6 +189,7 @@ public abstract class Heap<T extends Comparable<T>> {
      * @param sb     - string builder which collects all the node values.
      * @return - a binary tree representation of the heap.
      */
+    @SuppressWarnings("java:S3776")
     private StringBuilder toString(int index, StringBuilder prefix, boolean isTail, StringBuilder sb) {
         if (index != -1 && index < count) {
             int rightIndex = getRightChildIndex(index);
