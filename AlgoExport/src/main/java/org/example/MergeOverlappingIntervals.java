@@ -10,16 +10,6 @@ import java.util.Comparator;
  * output [[1,2], [3,8], [9,10]]
  */
 public class MergeOverlappingIntervals {
-    public static void main(String[] args) {
-        MergeOverlappingIntervals main = new MergeOverlappingIntervals();
-        //int[][] input = {{1, 2},  {3, 8}, {9, 10}};
-        //int[][] input = {{1, 5},  {2, 4}, {6, 7}};
-        int[][] input = {{1, 2}, {3, 5}, {4, 7}, {6, 8}, {9, 10}};
-        //int[][] input = {{-5, -4}, {-4, -3}, {-3, -2}, {-2, 1}, {-1, 0}};
-        //int[][] input = {{1, 10}, {2, 3}, {4, 5}, {6, 7}, {8, 9}};
-        var arr = main.mergeOverlappingIntervals(input);
-        System.out.println(Arrays.deepToString(arr));
-    }
 
     static class Intervals {
         int first;
